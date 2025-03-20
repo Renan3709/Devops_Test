@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meu-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meu-backend
+  template:
+    metadata:
+      labels:
+        app: meu-backend
+    spec:
+      containers:
+      - name: meu-backend
+        image: localhost:5001/meu-backend:latest
+        env:
+        - name: POSTGRES_USER
+          value: "teste"
+        - name: POSTGRES_PASSWORD
+          value: "teste"
+        - name: POSTGRES_DB
+          value: "meubanco"
+        - name: POSTGRES_HOST
+          value: "postgresql-service"
+        - name: POSTGRES_PORT
+          value: "5432"
+        ports:
+        - containerPort: 8080  # Porta onde o backend vai expor a aplicação
