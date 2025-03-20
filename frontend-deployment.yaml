@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meu-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meu-frontend
+  template:
+    metadata:
+      labels:
+        app: meu-frontend
+    spec:
+      containers:
+      - name: meu-frontend
+        image: localhost:5001/meu-frontend:latest
+        ports:
+        - containerPort: 80  # Porta onde o frontend vai expor a aplicação
