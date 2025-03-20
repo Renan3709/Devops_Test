@@ -56,9 +56,9 @@ docker push localhost:5000/meu-frontend
 
 <!-- Depois disso criei PostgreSQL no Kubernetes(adicionarei os arquivos ao repo) -->
 
-postgresql-pvc.yaml
-postgresql-deployment.yaml
-postgresql-service.yaml
+vim postgresql-pvc.yaml
+vim postgresql-deployment.yaml
+vim postgresql-service.yaml
 
 kubectl apply -f postgresql-pvc.yaml
 kubectl apply -f postgresql-deployment.yaml
@@ -67,10 +67,10 @@ kubectl apply -f postgresql-service.yaml
 
 <!-- Depois criei os yaml do Backend e Frontend(adicionarei os arquivos ao repo) -->
 
-backend-deployment.yaml
-frontend-deployment.yaml
-backend-service.yaml
-frontend-service.yaml
+vim backend-deployment.yaml
+vim frontend-deployment.yaml
+vim backend-service.yaml
+vim frontend-service.yaml
 
 kubectl apply -f backend-deployment.yaml
 kubectl apply -f frontend-deployment.yaml
@@ -82,7 +82,7 @@ kubectl apply -f frontend-service.yaml
 kubectl get deployment metrics-server -n kube-system
 kubectl autoscale deployment meu-backend --max=10 --min=1 --resource=memory --percent=70
 
-hpa-backend.yaml
+vim hpa-backend.yaml
 
 kubectl apply -f hpa-backend.yaml
 
