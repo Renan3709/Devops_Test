@@ -65,7 +65,7 @@ kubectl apply -f postgresql-deployment.yaml
 kubectl apply -f postgresql-service.yaml
 
 
-<!-- Depois criei os yaml do Backend e Frontend -->
+<!-- Depois criei os yaml do Backend e Frontend(adicionarei os arquivos ao repo) -->
 
 backend-deployment.yaml
 frontend-deployment.yaml
@@ -76,6 +76,16 @@ kubectl apply -f backend-deployment.yaml
 kubectl apply -f frontend-deployment.yaml
 kubectl apply -f backend-service.yaml
 kubectl apply -f frontend-service.yaml
+
+<!-- Fiz as configs de HPA(adicionarei os arquivos ao repo) -->
+
+kubectl get deployment metrics-server -n kube-system
+kubectl autoscale deployment meu-backend --max=10 --min=1 --resource=memory --percent=70
+
+hpa-backend.yaml
+
+kubectl apply -f hpa-backend.yaml
+
 
 <!-- Ao finalizar e tudo estiver funcionamento é importante reativar o selinux e fazer um trobleshoting em caso de problemas na aplicação -->
 
